@@ -252,4 +252,4 @@ Built for advanced AI workflows, agent systems, and real-world automation.
 
 ## 📜 License
 
-MIT License
+Apache License
