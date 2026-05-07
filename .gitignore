@@ -17,5 +17,5 @@ __pycache__/
 
 # Local models / embeddings
 data/
-
 models/
+logs/

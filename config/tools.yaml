@@ -1,0 +1,17 @@
+enabled_tools:
+  - gmail
+  - slack
+  - github
+  - tavily
+  - postgres
+  - snowflake
+  - docker
+  - aws
+  - sentry
+  - notion
+
+mcp_endpoints:
+  gmail: "http://localhost:8001"
+  slack: "http://localhost:8002"
+  github: "http://localhost:8003"
+  tavily: "http://localhost:8004"
