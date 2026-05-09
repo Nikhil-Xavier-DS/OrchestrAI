@@ -4,8 +4,9 @@ class Executor:
 
     async def run(self, state):
         results = []
-
-        for step in state["plan"]:
+        print("state")
+        print(state)
+        for step in state["plan"]["steps"]:
             agent_name = step["agent"]
             agent = self.agents[agent_name]
 

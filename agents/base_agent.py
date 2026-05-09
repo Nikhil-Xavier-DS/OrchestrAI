@@ -38,10 +38,20 @@ class BaseAgent:
         ])
 
         decision = self.safe_json_parse(response)
-
+        self.validate_decision(decision, available_tools)
+        
+        print("decision")
+        print(decision)
         tool = self.registry.get(
             decision["tool"]
         )
+        
+        if tool is None:
+            return {
+                "error": "tool_not_found",
+                "requested_tool": decision["tool"],
+                "available_tools": list(self.registry.tools.keys())
+            }
 
         result = await tool.run(
             decision["input"]
@@ -75,22 +85,28 @@ class BaseAgent:
                 })
 
         return tools
-
+    
     def build_prompt(self, state, tools):
+
+        tool_names = [t["name"] for t in tools]
 
         return f"""
         TASK:
         {state["task"]}
 
-        AVAILABLE TOOLS:
-        {json.dumps(tools, indent=2)}
+        AVAILABLE TOOLS (choose ONLY from this list):
+        {tool_names}
+
+        CRITICAL RULE:
+        You MUST select exactly ONE tool from the list above.
 
         Return ONLY valid JSON:
+
         {{
-            "tool": "...",
-            "input": {{...}}
+        "tool": "one_of_the_above_tools",
+        "input": {{}}
         }}
-        """
+    """
 
     def safe_json_parse(self, text):
 
@@ -107,3 +123,15 @@ class BaseAgent:
                 "tool": None,
                 "input": {}
             }
+        
+    def validate_decision(self, decision, tools):
+
+        if not decision.get("tool"):
+            raise Exception("No tool selected by LLM")
+
+        valid_tools = {t["name"] for t in tools}
+
+        if decision["tool"] not in valid_tools:
+            raise Exception(
+                f"Invalid tool selected: {decision['tool']}"
+            )

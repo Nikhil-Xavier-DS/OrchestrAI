@@ -17,6 +17,9 @@ class ReflectionAgent(BaseAgent):
 
     async def run(self, state):
 
+        print("state")
+        print(state)
+
         prompt = f"""
         TASK:
         {state["task"]}

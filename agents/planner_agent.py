@@ -5,27 +5,37 @@ class PlannerAgent:
         self.llm = llm
 
     async def run(self, state):
-        prompt = f"""
-        You are an AI planner.
+        prompt = """
+        You are a planning agent.
 
-        Break the task into steps and assign agents:
-        Available agents:
-        - comms (email, slack)
-        - data (databases)
-        - dev (code, infra)
-        - research (web)
+        You MUST output ONLY valid JSON.
 
-        Return JSON:
-        [
-          {{ "agent": "...", "task": "..." }}
+        NO explanations.
+        NO markdown.
+        NO extra text.
+
+        FORMAT:
+        {
+        "steps": [
+            {
+            "agent": "comms",
+            "task": "..."
+            }
         ]
+        }
 
-        Task: {state["task"]}
+        TASK:
+        {task}
         """
 
-        response = await self.llm.chat([
-            {"role": "user", "content": prompt}
-        ])
+        response = await self.llm.chat(
+            messages=[
+                {"role": "system", "content": "Return ONLY valid JSON. No text."},
+                {"role": "user", "content": prompt}
+            ]
+        )
 
+        print("response")
+        print(response)
         plan = json.loads(response)
         return {"plan": plan}
