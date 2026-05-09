@@ -1,4 +1,3 @@
-# main.py
 import asyncio
 from tools.registry import ToolRegistry
 from agents.comms_agent import CommsAgent
