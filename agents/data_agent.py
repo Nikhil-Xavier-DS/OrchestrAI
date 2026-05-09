@@ -1,12 +1,37 @@
+import json
+
 class DataAgent:
-    def __init__(self, registry):
+    def __init__(self, registry, llm):
         self.registry = registry
+        self.llm = llm
 
     async def run(self, state):
-        db = self.registry.get("postgres")
+        prompt = f"""
+        You are a data assistant.
 
-        result = await db.run({
-            "query": "SELECT * FROM sales LIMIT 10"
-        })
+        Task: {state["task"]}
 
-        return {"data": result}
+        Available tools:
+        - postgres
+
+        Decide:
+        1. Which tool to use
+        2. What input to send
+
+        Return JSON:
+        {{
+          "tool": "...",
+          "input": {{...}}
+        }}
+        """
+
+        decision = await self.llm.chat([
+            {"role": "user", "content": prompt}
+        ])
+
+        decision = json.loads(decision)
+
+        tool = self.registry.get(decision["tool"])
+        result = await tool.run(decision["input"])
+
+        return result

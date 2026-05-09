@@ -1,10 +1,37 @@
+import json
+
 class ResearchAgent:
-    def __init__(self, registry):
+    def __init__(self, registry, llm):
         self.registry = registry
+        self.llm = llm
 
     async def run(self, state):
-        tavily = self.registry.get("tavily")
+        prompt = f"""
+        You are a research assistant.
 
-        results = await tavily.run({"query": state["task"]})
+        Task: {state["task"]}
 
-        return {"research": results}
+        Available tools:
+        - tavily
+
+        Decide:
+        1. Which tool to use
+        2. What input to send
+
+        Return JSON:
+        {{
+          "tool": "...",
+          "input": {{...}}
+        }}
+        """
+
+        decision = await self.llm.chat([
+            {"role": "user", "content": prompt}
+        ])
+
+        decision = json.loads(decision)
+
+        tool = self.registry.get(decision["tool"])
+        result = await tool.run(decision["input"])
+
+        return result
