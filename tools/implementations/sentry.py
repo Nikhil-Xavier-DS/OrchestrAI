@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class SentryTool:
 
-    name = "github"
+    name = "sentry"
 
-    category = "development"
+    category = "monitoring"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['error_tracking', 'monitoring', 'debugging']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "sentry",
             endpoint
         )
 

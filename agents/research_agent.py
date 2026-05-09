@@ -1,37 +1,14 @@
-import json
+from agents.base_agent import BaseAgent
 
-class ResearchAgent:
-    def __init__(self, registry, llm):
-        self.registry = registry
-        self.llm = llm
+class ResearchAgent(BaseAgent):
 
-    async def run(self, state):
-        prompt = f"""
-        You are a research assistant.
+    capabilities = [
+        "search",
+        "documentation",
+        "web_scraping",
+        "knowledge"
+    ]
 
-        Task: {state["task"]}
-
-        Available tools:
-        - tavily
-
-        Decide:
-        1. Which tool to use
-        2. What input to send
-
-        Return JSON:
-        {{
-          "tool": "...",
-          "input": {{...}}
-        }}
-        """
-
-        decision = await self.llm.chat([
-            {"role": "user", "content": prompt}
-        ])
-
-        decision = json.loads(decision)
-
-        tool = self.registry.get(decision["tool"])
-        result = await tool.run(decision["input"])
-
-        return result
+    system_prompt = """
+    You are a research and intelligence agent.
+    """

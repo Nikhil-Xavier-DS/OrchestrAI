@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class SharepointTool:
 
-    name = "github"
+    name = "sharepoint"
 
-    category = "development"
+    category = "enterprise"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['document_management', 'enterprise_search']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "sharepoint",
             endpoint
         )
 

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class MixpanelTool:
 
-    name = "github"
+    name = "mixpanel"
 
-    category = "development"
+    category = "analytics"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['product_analytics', 'funnels']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "mixpanel",
             endpoint
         )
 

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class JiraTool:
 
-    name = "github"
+    name = "jira"
 
-    category = "development"
+    category = "project_management"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['issues', 'tickets', 'task_tracking']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "jira",
             endpoint
         )
 

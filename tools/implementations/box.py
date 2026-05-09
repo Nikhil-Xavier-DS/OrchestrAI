@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class BoxTool:
 
-    name = "github"
+    name = "box"
 
-    category = "development"
+    category = "storage"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['enterprise_storage']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "box",
             endpoint
         )
 

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class DiscordTool:
 
-    name = "github"
+    name = "discord"
 
-    category = "development"
+    category = "communication"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['messaging', 'community_management']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "discord",
             endpoint
         )
 

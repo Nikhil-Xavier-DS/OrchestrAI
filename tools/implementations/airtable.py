@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class AirtableTool:
 
-    name = "github"
+    name = "airtable"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['spreadsheet', 'database']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "airtable",
             endpoint
         )
 

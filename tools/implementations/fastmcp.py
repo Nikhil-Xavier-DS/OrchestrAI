@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class FastmcpTool:
 
-    name = "github"
+    name = "fastmcp"
 
-    category = "development"
+    category = "mcp"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['mcp_creation']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "fastmcp",
             endpoint
         )
 

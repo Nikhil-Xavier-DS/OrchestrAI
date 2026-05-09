@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class BigqueryTool:
 
-    name = "github"
+    name = "bigquery"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['analytics', 'sql', 'warehouse']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "bigquery",
             endpoint
         )
 

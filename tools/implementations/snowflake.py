@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class SnowflakeTool:
 
-    name = "github"
+    name = "snowflake"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['warehouse', 'analytics']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "snowflake",
             endpoint
         )
 

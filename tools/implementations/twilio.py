@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class TwilioTool:
 
-    name = "github"
+    name = "twilio"
 
-    category = "development"
+    category = "communication"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['sms', 'voice']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "twilio",
             endpoint
         )
 

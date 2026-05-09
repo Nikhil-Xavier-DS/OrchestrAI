@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class OnedriveTool:
 
-    name = "github"
+    name = "onedrive"
 
-    category = "development"
+    category = "storage"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['file_storage', 'document_access']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "onedrive",
             endpoint
         )
 

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class CloudflareTool:
 
-    name = "github"
+    name = "cloudflare"
 
-    category = "development"
+    category = "cloud"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['cdn', 'dns', 'edge_computing']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "cloudflare",
             endpoint
         )
 

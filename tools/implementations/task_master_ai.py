@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class TaskMasterAiTool:
 
-    name = "github"
+    name = "task_master_ai"
 
-    category = "development"
+    category = "planning"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['task_planning', 'workflow_management']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "task_master_ai",
             endpoint
         )
 

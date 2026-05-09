@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class Microsoft365Tool:
 
-    name = "github"
+    name = "microsoft_365"
 
-    category = "development"
+    category = "enterprise"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['email', 'documents', 'calendar']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "microsoft_365",
             endpoint
         )
 

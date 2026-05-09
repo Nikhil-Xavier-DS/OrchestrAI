@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class ConfluenceTool:
 
-    name = "github"
+    name = "confluence"
 
-    category = "development"
+    category = "knowledge"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['wiki', 'documentation', 'knowledge_base']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "confluence",
             endpoint
         )
 

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class SalesforceTool:
 
-    name = "github"
+    name = "salesforce"
 
-    category = "development"
+    category = "crm"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['crm', 'forecasting', 'accounts']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "salesforce",
             endpoint
         )
 

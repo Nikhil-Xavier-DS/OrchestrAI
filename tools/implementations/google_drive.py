@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class GoogleDriveTool:
 
-    name = "github"
+    name = "google_drive"
 
-    category = "development"
+    category = "storage"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['file_storage', 'document_access', 'search']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "google_drive",
             endpoint
         )
 

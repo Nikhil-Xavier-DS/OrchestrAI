@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class GoogleAnalyticsTool:
 
-    name = "github"
+    name = "google_analytics"
 
-    category = "development"
+    category = "analytics"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['traffic', 'web_analytics']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "google_analytics",
             endpoint
         )
 

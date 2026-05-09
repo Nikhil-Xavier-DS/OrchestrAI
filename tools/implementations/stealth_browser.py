@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class StealthBrowserTool:
 
-    name = "github"
+    name = "stealth_browser"
 
-    category = "development"
+    category = "automation"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['web_scraping', 'browser_automation']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "stealth_browser",
             endpoint
         )
 

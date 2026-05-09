@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class PostgresTool:
 
-    name = "github"
+    name = "postgres"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['database', 'sql', 'analytics']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "postgres",
             endpoint
         )
 

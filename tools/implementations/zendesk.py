@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class ZendeskTool:
 
-    name = "github"
+    name = "zendesk"
 
-    category = "development"
+    category = "support"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['tickets', 'customer_support']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "zendesk",
             endpoint
         )
 

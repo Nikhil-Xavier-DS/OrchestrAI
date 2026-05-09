@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class CodebaseMemoryTool:
 
-    name = "github"
+    name = "codebase_memory"
 
-    category = "development"
+    category = "memory"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['knowledge_graph', 'code_memory']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "codebase_memory",
             endpoint
         )
 

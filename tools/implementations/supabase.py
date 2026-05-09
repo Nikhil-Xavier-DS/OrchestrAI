@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class SupabaseTool:
 
-    name = "github"
+    name = "supabase"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['database', 'auth', 'storage']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "supabase",
             endpoint
         )
 

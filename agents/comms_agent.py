@@ -1,38 +1,20 @@
-import json
+from agents.base_agent import BaseAgent
 
-class CommsAgent:
-    def __init__(self, registry, llm):
-        self.registry = registry
-        self.llm = llm
+class CommsAgent(BaseAgent):
 
-    async def run(self, state):
-        prompt = f"""
-        You are a communication assistant.
+    capabilities = [
+        "email",
+        "messaging",
+        "crm",
+        "support"
+    ]
 
-        Task: {state["task"]}
+    system_prompt = """
+    You are a communication agent.
 
-        Available tools:
-        - gmail
-        - slack
-
-        Decide:
-        1. Which tool to use
-        2. What input to send
-
-        Return JSON:
-        {{
-          "tool": "...",
-          "input": {{...}}
-        }}
-        """
-
-        decision = await self.llm.chat([
-            {"role": "user", "content": prompt}
-        ])
-
-        decision = json.loads(decision)
-
-        tool = self.registry.get(decision["tool"])
-        result = await tool.run(decision["input"])
-
-        return result
+    You specialize in:
+    - email
+    - messaging
+    - CRM workflows
+    - support systems
+    """

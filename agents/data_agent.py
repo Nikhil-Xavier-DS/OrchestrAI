@@ -1,37 +1,21 @@
-import json
+from agents.base_agent import BaseAgent
 
-class DataAgent:
-    def __init__(self, registry, llm):
-        self.registry = registry
-        self.llm = llm
+class DataAgent(BaseAgent):
 
-    async def run(self, state):
-        prompt = f"""
-        You are a data assistant.
+    capabilities = [
+        "database",
+        "sql",
+        "analytics",
+        "spreadsheet",
+        "tracking"
+    ]
 
-        Task: {state["task"]}
+    system_prompt = """
+    You are a data analytics agent.
 
-        Available tools:
-        - postgres
-
-        Decide:
-        1. Which tool to use
-        2. What input to send
-
-        Return JSON:
-        {{
-          "tool": "...",
-          "input": {{...}}
-        }}
-        """
-
-        decision = await self.llm.chat([
-            {"role": "user", "content": prompt}
-        ])
-
-        decision = json.loads(decision)
-
-        tool = self.registry.get(decision["tool"])
-        result = await tool.run(decision["input"])
-
-        return result
+    You specialize in:
+    - SQL
+    - analytics
+    - dashboards
+    - structured data
+    """

@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class IntercomTool:
 
-    name = "github"
+    name = "intercom"
 
-    category = "development"
+    category = "support"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['customer_support', 'chat']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "intercom",
             endpoint
         )
 

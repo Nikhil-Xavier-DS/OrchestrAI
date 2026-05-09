@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class MarkdownifyTool:
 
-    name = "github"
+    name = "markdownify"
 
-    category = "development"
+    category = "documents"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['markdown_conversion', 'document_processing']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "markdownify",
             endpoint
         )
 

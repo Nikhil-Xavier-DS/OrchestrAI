@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class GoogleCalendarTool:
 
-    name = "github"
+    name = "google_calendar"
 
-    category = "development"
+    category = "productivity"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['calendar', 'scheduling', 'meetings']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "google_calendar",
             endpoint
         )
 

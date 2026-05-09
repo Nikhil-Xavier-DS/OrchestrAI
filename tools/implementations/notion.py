@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class NotionTool:
 
-    name = "github"
+    name = "notion"
 
-    category = "development"
+    category = "knowledge"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['notes', 'documentation', 'knowledge_base']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "notion",
             endpoint
         )
 

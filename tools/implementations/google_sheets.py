@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class GoogleSheetsTool:
 
-    name = "github"
+    name = "google_sheets"
 
-    category = "development"
+    category = "data"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['spreadsheet', 'analytics', 'structured_data']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "google_sheets",
             endpoint
         )
 

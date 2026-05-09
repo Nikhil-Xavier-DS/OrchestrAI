@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class Context7Tool:
 
-    name = "github"
+    name = "context7"
 
     category = "development"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['documentation', 'api_reference', 'libraries']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "context7",
             endpoint
         )
 

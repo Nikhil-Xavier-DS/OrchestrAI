@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class PlaywrightTool:
 
-    name = "github"
+    name = "playwright"
 
-    category = "development"
+    category = "automation"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['browser_automation', 'testing']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "playwright",
             endpoint
         )
 

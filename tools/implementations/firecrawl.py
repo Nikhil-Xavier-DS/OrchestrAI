@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class FirecrawlTool:
 
-    name = "github"
+    name = "firecrawl"
 
-    category = "development"
+    category = "research"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['web_scraping', 'crawl']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "firecrawl",
             endpoint
         )
 

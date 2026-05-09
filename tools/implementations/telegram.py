@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class TelegramTool:
 
-    name = "github"
+    name = "telegram"
 
-    category = "development"
+    category = "communication"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['messaging', 'channels']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "telegram",
             endpoint
         )
 

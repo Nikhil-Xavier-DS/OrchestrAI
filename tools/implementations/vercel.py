@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class VercelTool:
 
-    name = "github"
+    name = "vercel"
 
-    category = "development"
+    category = "deployment"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['hosting', 'deployment']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "vercel",
             endpoint
         )
 

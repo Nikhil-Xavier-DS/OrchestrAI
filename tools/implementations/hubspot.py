@@ -1,18 +1,18 @@
 
 from tools.mcp_tool import MCPTool
 
-class GithubTool:
+class HubspotTool:
 
-    name = "github"
+    name = "hubspot"
 
-    category = "development"
+    category = "crm"
 
-    capabilities = ['code', 'repository', 'pull_requests', 'issues']
+    capabilities = ['crm', 'sales_pipeline']
 
     def __init__(self, endpoint: str):
 
         self.tool = MCPTool(
-            "github",
+            "hubspot",
             endpoint
         )
 
